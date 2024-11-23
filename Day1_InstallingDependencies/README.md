@@ -36,18 +36,11 @@ sudo apt install curl -y
 curl -V
 ```
 
-## Git
-Install git using the command
-```
-sudo apt install git -y
-```
-
 ## NVM
 
 Install NVM (Node Version Manager), open a terminal and execute the following command.
 ```
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
-
 ```
 Close the current terminal and open a new one.
 
@@ -55,7 +48,6 @@ In the new terminal execute this command to verify nvm has been installed
 
 ```
 nvm -v
-
 ```
 
 
@@ -103,7 +95,6 @@ docker compose version
 
 ```
 docker -v
-
 ```
 
 ## JQ
@@ -129,7 +120,6 @@ To verify the installtion enter the following command
 
 ```
 dpkg -l | grep build-essential
-
 ```
 
 ## Go
@@ -151,13 +141,17 @@ Step 4: Append the following to the end of `PATH` variable and save
 ```
 :/usr/local/go/bin
 ```
+```
+source $HOME/.profile
+```
+
 To verify the installtion enter the following command
 
 
 ```
 go version
-
 ```
+Note: If go version is not listed, then restart the system and execute the command again.
 
 **Install Minifab**
 
@@ -171,4 +165,14 @@ sudo cp minifab /usr/local/bin
 
 ```
 minifab
+```
+
+## Git
+Install git using the command
+```
+sudo apt install git -y
+```
+To verify the installtion enter the following command
+```
+git --version
 ```
