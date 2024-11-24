@@ -189,8 +189,9 @@ git config --global user.email "your Github email"
 
 **SSH Key Configuration**
 ```
-ssh-keygen -t ed25519 -C "github_email" //Replace the emaial with any recognizable tag that you like
+ssh-keygen -t ed25519 -C "github_email" 
 ```
+Note: Replace the github_email with any recognizable tag that you like
 ```
 eval "$(ssh-agent -s)"
 ```
@@ -207,6 +208,11 @@ Now, in github account, go to the settings and select SSH and GPG keys, click Ne
 
 Now if you clone using ssh. It will automatically be cloned to your local sytem.
 
+
+
+**VS code Source Control**
+
+Open a project and open it in vs code, add files, select Source Control, Click Initialize Repository, stage the changes, enter a commit_message, click Commit, then Publish Branch. If modifying the project, then stage the changes, enter a commit_message, click Commit, then Sync Changes.
 
 #### Git Commands
 
