@@ -212,7 +212,7 @@ Now if you clone using ssh. It will automatically be cloned to your local sytem.
 
 **VS code Source Control**
 
-Open a project and open it in vs code, add files, select Source Control, Click Initialize Repository, stage the changes, enter a commit_message, click Commit, then Publish Branch. If modifying the project, then stage the changes, enter a commit_message, click Commit, then Sync Changes.
+Create a project and open it in vs code, add files, select Source Control, click Initialize Repository, stage the changes (+), enter a commit_message, click Commit, then Publish Branch. If modifying the project, then stage the changes, enter a commit_message, click Commit, then Sync Changes.
 
 #### Git Commands
 
@@ -247,3 +247,9 @@ git pull
 ```bash
 git clone repository_url 
 ```
+
+#### GitHub Classroom
+
+https://classroom.github.com/a/I5vJ_OQM
+
+Click `Authorize GitHub Classroom`, select `your_name`, click `Accept this assignment`, click on your assignment repository link, and clone it. You can see a folder `npci-b7-assignments-yourname`, add assignments by creating a folder with the respective day (eg:day1), and push it
