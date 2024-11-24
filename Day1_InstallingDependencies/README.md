@@ -125,11 +125,11 @@ dpkg -l | grep build-essential
 ## Go
 Step 1: Download Go
 ```
-curl -OL  https://go.dev/dl/go1.21.4.linux-amd64.tar.gz
+curl -OL  https://go.dev/dl/go1.22.0.linux-amd64.tar.gz
 ```
 Step 2: Extract
 ```
-sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.21.4.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz
 ```
 
 Step 3: Add /usr/local/go/bin to the PATH environment variable. Open the /etc/environment file
@@ -200,9 +200,10 @@ ssh-add ~/.ssh/id_ed25519
 ```
 cat ~/.ssh/id_ed25519.pub
 ```
-#### Copy from ssh to the last (without tag).
 
-Now go to the settings and select SSH and GPG keys, click New SSH key, enter a title, paste this key and click add.
+Copy the key from ssh to the last.
+
+Now, in github account, go to the settings and select SSH and GPG keys, click New SSH key, enter a title, paste this key and click add.
 
 Now if you clone using ssh. It will automatically be cloned to your local sytem.
 
@@ -214,20 +215,29 @@ Now if you clone using ssh. It will automatically be cloned to your local sytem.
 git init
 ```
 2. Stage the changes
+
+use this to add by file name
 ```bash
-git add file_name #use this to add by file name
-git add . # use this for adding all the changes to staging area
+git add file_name
+```
+use this for adding all the changes to staging area
+```
+git add . 
 ```
 3. Commit the changes
 ```bash
 git commit -m "commit_message"
 ```
 
-4. push to the repo
+4. Push to the repo
 ```bash
 git push
 ```
-5. pull from the remote repo
+5. Pull from the remote repo
 ```bash
 git pull 
+```
+6. Clone a repo (HTTPS or SSH)
+```bash
+git clone repository_url 
 ```
