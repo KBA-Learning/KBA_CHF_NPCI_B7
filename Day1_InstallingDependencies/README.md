@@ -218,7 +218,7 @@ Now if you clone using ssh. It will automatically be cloned to your local sytem.
 
 **VS code Source Control**
 
-Create a project and open it in vs code, add files, select Source Control, click Initialize Repository, stage the changes (+), enter a commit_message, click Commit, then Publish Branch. If modifying the project, then stage the changes, enter a commit_message, click Commit, then Sync Changes.
+Create a project and open it in vs code, add files, select `Source Control`, click `Initialize Repository`, stage the changes (`+`), enter a `commit_message`, click `Commit`, then `Publish Branch`. If modifying the project, then stage the changes, enter a commit_message, click `Commit`, then `Sync Changes`.
 
 #### Git Commands
 
