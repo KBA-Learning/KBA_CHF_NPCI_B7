@@ -210,7 +210,7 @@ cat ~/.ssh/id_ed25519.pub
 
 Copy the key from ssh to the last.
 
-Now, in github account, go to the settings and select SSH and GPG keys, click New SSH key, enter a title, paste this key and click add.
+Now, in github account, go to the `settings` and select `SSH and GPG keys`, click `New SSH key`, enter a title, paste this key and click `add`.
 
 Now if you clone using ssh. It will automatically be cloned to your local sytem.
 
