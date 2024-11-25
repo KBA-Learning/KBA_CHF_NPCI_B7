@@ -97,6 +97,12 @@ docker compose version
 docker -v
 ```
 
+Execute the following command to check whether we can execute docker commands without sudo
+
+```
+docker ps -a
+```
+
 ## JQ
 Install JQ using the following command
 ```
