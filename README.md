@@ -2,7 +2,7 @@
 
 Elearning course link: https://elearning.kba.ai/courses/course-v1:KBA+CHF_GO+2023_Q3/course/
 
-GitHub Classroom Assignment link: https://classroom.github.com/classrooms/173654153-chf_npci_b7_assignments
+GitHub Classroom Assignment link: https://classroom.github.com/a/I5vJ_OQM
 
 Hyperledger Fabric Readthedocs: https://hyperledger-fabric.readthedocs.io/en/release-2.5/
 
