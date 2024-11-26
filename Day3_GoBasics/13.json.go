@@ -32,6 +32,6 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	fmt.Printf(" the data is : %#v \n", p2)
+	fmt.Printf(" the data is : %v \n", p2)
 }
 
