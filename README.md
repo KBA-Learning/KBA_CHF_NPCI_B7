@@ -6,6 +6,7 @@ GitHub Classroom Assignment link: https://classroom.github.com/a/I5vJ_OQM
 
 Hyperledger Fabric Readthedocs: https://hyperledger-fabric.readthedocs.io/en/release-2.5/
 
+***Assesment 2*** :  https://forms.gle/e8UZTmQqCqwBXGET8
 
 ***Assignment 1:***
 
