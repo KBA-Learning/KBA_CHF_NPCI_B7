@@ -13,7 +13,7 @@ GitHub Classroom Assignment link: https://classroom.github.com/a/I5vJ_OQM
 **Assignment 2:** Submit the assignment before 28-Nov-2024, 9.00am
 
 Develop a Hyperledger Fabric blockchain solution for managing vehicle insurance claims post-accident. The solution will involve multiple participants, namely the Police Department, Government Agency, Insurance Company, and Vehicle Manufacturer.
-Build a Hyperledger Fabric network using minifabric, and create a chaincode to implement functionalities like createAccidentReport, and readAccidentReport and implement proper access control for the functionalities. Add the entire code to a directory Assignment2, and add readme with the steps to run it and invoke the transactions.  Add a screenshot of the output.
+Build a Hyperledger Fabric network using minifabric, and create a chaincode to implement functionalities like CreateAccidentReport, and ReadAccidentReport and implement proper access control for the functionalities. Add the entire code to a directory Assignment2, and add readme with the steps to run it and invoke the transactions.  Add a screenshot of the output.
 
 
 
