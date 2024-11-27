@@ -33,7 +33,4 @@ chmod +x startNetwork.sh
 ```
 ./startNetwork.sh
 ```
-![Uploading Screenshot from 2024-11-27 10-27-51.png…]()
-
-
 
