@@ -89,7 +89,7 @@ cp -r ../Chaincode/* vars/chaincode/KBA-Automobile/go/
 minifab ccup -n KBA-Automobile -l go -v 3.0 -d false -r true
 
 minifab query -n KBA-Automobile -p '"GetAllCars"'
-
+```
 
 **#Create additional orders to execute the rich queries**
 
@@ -140,12 +140,3 @@ minifab query -n KBA-Automobile -p '"OrderContract:GetOrdersByRange","ord01","or
 
 ```
 
-**#Execute the following commands to sort the Cars:(ADD the inedxColor.json file)**
-
-```
-cp -r ../Chaincode/* vars/chaincode/KBA-Automobile/go/
-
-minifab ccup -n KBA-Automobile -l go -v 3.0 -d false -r true
-
-minifab query -n KBA-Automobile -p '"GetAllCars"'
-```
