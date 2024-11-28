@@ -9,13 +9,13 @@ GitHub Classroom Assignment link: https://classroom.github.com/a/I5vJ_OQM
 
 **Day 4**
 
-**Assessment 4:**  https://forms.gle/q8Qev2by4nzLsiNS8
 
 **Assignment 3:** (Submission deadline: 30-Nov-2024, 5pm)
 
 For the Insurance use-case, Create a chaincode for implementing functionalities like CreateAccidentReport, DeleteAccidentReport, ReadAccidentReport, CreateInsurancePolicy, ReadInsurancePolicy, ApproveInsurancePolicy etc. and implement proper access control for the functionalities. May create one of the assets as private. Add the chaincode to Assignment3 folder, and write the steps to run the network and execute the transactions. There should be transactions to read all assets, read history, read pagewise etc. Keep a screenshot of the output.
 
 
+**Day 3**
 
 **Assignment 2:** Submit the assignment before 28-Nov-2024, 9.00am
 
