@@ -21,7 +21,7 @@ cp vars/chaincode/KBA-Automobile/go/collection-minifab.json ./vars/KBA-Automobil
 
 minifab ccup -n KBA-Automobile -l go -v 1.0 -d false -r true
 
-minifab invoke -n KBA-Automobile -p '"CreateCar","car01","Tata","Tiago","White","F-01","22/03/2023"'
+minifab invoke -n KBA-Automobile -p '"CreateCar","car01","Tata","Tiago","White","F-01","22/07/2024"'
 
 minifab query -n KBA-Automobile -p '"ReadCar","car01"'
 
@@ -59,18 +59,37 @@ minifab ccup -n KBA-Automobile -l go -v 2.0 -d false -r true
 **#Create additional cars to execute the rich queries**
 
 ```
-minifab invoke -n KBA-Automobile -p '"CreateCar","car02","Maruti","Swift","Red","F-01","25/06/2023"' -o manufacturer.auto.com
+minifab invoke -n KBA-Automobile -p '"CreateCar","car02","Maruti","Swift","Red","F-01","25/06/2024"' -o manufacturer.auto.com
 
-minifab invoke -n KBA-Automobile -p '"CreateCar","car03","Kia","Seltos","Black","F-01","10/08/2023"'
+minifab invoke -n KBA-Automobile -p '"CreateCar","car03","Kia","Seltos","Black","F-01","10/08/2024"'
 
-minifab invoke -n KBA-Automobile -p '"CreateCar","car04","Honda","Amaze","Yellow","F-01","01/12/2023"'
+minifab invoke -n KBA-Automobile -p '"CreateCar","car04","Honda","Amaze","Yellow","F-01","01/11/2024"'
 
-minifab invoke -n KBA-Automobile -p '"CreateCar","car05","Hyundai","Creta","Blue","F-01","18/09/2023"'
+minifab invoke -n KBA-Automobile -p '"CreateCar","car05","Hyundai","Creta","Blue","F-01","18/09/2024"'
 
 minifab query -n KBA-Automobile -p '"GetAllCars"'
 
 minifab query -n KBA-Automobile -p '"GetCarsByRange","car01","car05"'
 ```
+
+**#Execute the following commands to sort the Cars**
+
+Create the folder structure within Chaincode folder
+
+```
+mkdir -p META-INF/statedb/couchdb/indexes
+```
+
+ADD the inedxColor.json file to `indexes` folder
+
+
+```
+cp -r ../Chaincode/* vars/chaincode/KBA-Automobile/go/
+
+minifab ccup -n KBA-Automobile -l go -v 3.0 -d false -r true
+
+minifab query -n KBA-Automobile -p '"GetAllCars"'
+
 
 **#Create additional orders to execute the rich queries**
 
