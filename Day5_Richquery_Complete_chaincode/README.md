@@ -74,7 +74,7 @@ Create the folder structure within Chaincode folder
 mkdir -p META-INF/statedb/couchdb/indexes
 ```
 
-ADD the inedxColor.json file to `indexes` folder
+ADD the `indexColor.json` file to `indexes` folder
 
 
 ```

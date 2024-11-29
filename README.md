@@ -11,7 +11,7 @@ GitHub Classroom Assignment link: https://classroom.github.com/a/I5vJ_OQM
 
 **Feedback**: https://forms.gle/YnUjK9GXpsE9Ubhk8
 
-**Assignment 4:**
+**Project:**
 
 As part of project, select a use case, where applying distributed ledger is relevant. Create a simple pitch deck showing the details and workflow of your project. A sample template for the pitch deck is available under `ProjectGuidelines`. Once you have prepared the pitch deck, please upload the pdf file to Github Assignments by creating a `Project` folder,  on or before 02-Dec-2024, 10.00am.
 
