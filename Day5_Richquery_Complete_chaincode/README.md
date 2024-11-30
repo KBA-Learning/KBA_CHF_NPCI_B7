@@ -157,6 +157,10 @@ minifab query -n KBA-Automobile -p '"OrderContract:GetOrdersByRange","ord01","or
 
 `minifab query -n KBA-Automobile -p '"GetCarsWithPagination","2","g1AAAAA6eJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzJicWGRiDJDlgkgjhLADJBA_x"'`
 
+**Match Order**
+
+`minifab invoke -n KBA-Automobile -p '"CreateCar","car06","Tata","Tiago","White","F-01","22/07/2024"'`
+
 
 ```
 MAKE=$(echo -n "Tata" | base64 | tr -d \\n)
@@ -187,15 +191,15 @@ DEALER_NAME=$(echo -n "XXX" | base64 | tr -d \\n)
 
 `minifab ccup -n KBA-Automobile -l go -v 4.0 -d false -r true`
 
-`minifab query -n KBA-Automobile -p '"GetMatchingOrders","car01"'`
+`minifab query -n KBA-Automobile -p '"GetMatchingOrders","car06"'`
 
-`minifab invoke -n KBA-Automobile -p '"MatchOrder","car01","ord06"'`
+`minifab invoke -n KBA-Automobile -p '"MatchOrder","car06","ord06"'`
 
-`minifab invoke -n KBA-Automobile -p '"RegisterCar","car01","Bob","KL-01-XXXX"' -o mvd.auto.com`
+`minifab invoke -n KBA-Automobile -p '"RegisterCar","car06","Bob","KL-01-XXXX"' -o mvd.auto.com`
 
-`minifab query -n KBA-Automobile -p '"ReadCar","car01"'`
+`minifab query -n KBA-Automobile -p '"ReadCar","car06"'`
 
-`minifab query -n KBA-Automobile -p '"GetCarHistory","car01"'`
+`minifab query -n KBA-Automobile -p '"GetCarHistory","car06"'`
 
 
 
