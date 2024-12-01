@@ -248,7 +248,7 @@ func (c *CarContract) GetMatchingOrders(ctx contractapi.TransactionContextInterf
 	
 	car, err := c.ReadCar(ctx, carID)
 	if err != nil {
-		return nil, fmt.Errorf("Error reading car %v", err)
+		return nil, fmt.Errorf("error reading car %v", err)
 	}
 	queryString := fmt.Sprintf(`{"selector":{"assetType":"Order","make":"%s", "model": "%s", "color":"%s"}}`, car.Make, car.Model, car.Color)
 	resultsIterator, err := ctx.GetStub().GetPrivateDataQueryResult(collectionName, queryString)
@@ -326,7 +326,7 @@ func (c *CarContract) RegisterCar(ctx contractapi.TransactionContextInterface, c
 
 
 	} else {
-		return "", fmt.Errorf("User under following MSPID: %v cannot able to perform this action", clientOrgID)
+		return "", fmt.Errorf("user under following MSPID: %v cannot able to perform this action", clientOrgID)
 	}
 
 }
