@@ -223,12 +223,12 @@ func (c *CarContract) GetCarHistory(ctx contractapi.TransactionContextInterface,
 }
 
 func (c *CarContract) GetCarsWithPagination(ctx contractapi.TransactionContextInterface, pageSize int32, bookmark string) (*PaginatedQueryResult, error) {
-	
+
 	queryString := `{"selector":{"assetType":"car"}}`
 
 	resultsIterator, responseMetadata, err := ctx.GetStub().GetQueryResultWithPagination(queryString, pageSize, bookmark)
 	if err != nil {
-		return nil,fmt.Errorf("could not get the car records. %s", err)
+		return nil, fmt.Errorf("could not get the car records. %s", err)
 	}
 	defer resultsIterator.Close()
 
@@ -243,9 +243,10 @@ func (c *CarContract) GetCarsWithPagination(ctx contractapi.TransactionContextIn
 		Bookmark:            responseMetadata.Bookmark,
 	}, nil
 }
+
 // GetMatchingOrders get matching orders for car from the orders
 func (c *CarContract) GetMatchingOrders(ctx contractapi.TransactionContextInterface, carID string) ([]*Order, error) {
-	
+
 	car, err := c.ReadCar(ctx, carID)
 	if err != nil {
 		return nil, fmt.Errorf("error reading car %v", err)
@@ -264,41 +265,49 @@ func (c *CarContract) GetMatchingOrders(ctx contractapi.TransactionContextInterf
 
 // MatchOrder matches car with matching order
 func (c *CarContract) MatchOrder(ctx contractapi.TransactionContextInterface, carID string, orderID string) (string, error) {
-
-	bytes, err := ctx.GetStub().GetPrivateData(collectionName, orderID)
+	clientOrgID, err := ctx.GetClientIdentity().GetMSPID()
 	if err != nil {
-		return "",fmt.Errorf("could not get the private data: %s", err)
+		return "", fmt.Errorf("could not fetch client identity. %s", err)
 	}
+	if clientOrgID == "manufacturer-auto-com" {
+		bytes, err := ctx.GetStub().GetPrivateData(collectionName, orderID)
+		if err != nil {
+			return "", fmt.Errorf("could not get the private data: %s", err)
+		}
 
-	var order Order
+		var order Order
 
-	err = json.Unmarshal(bytes, &order)
-
-	if err != nil {
-	 	return "",fmt.Errorf("could not unmarshal the data. %s", err)	}
-
-	car, err := c.ReadCar(ctx, carID)
-	if err != nil {
-		return "", fmt.Errorf("could not read the data. %s", err)
-	}
-
-	if car.Make == order.Make && car.Color == order.Color && car.Model == order.Model {
-		car.OwnedBy = order.DealerName
-		car.Status = "assigned to a dealer"
-
-		bytes, _ := json.Marshal(car)
-
-		ctx.GetStub().DelPrivateData(collectionName, orderID)
-
-		err = ctx.GetStub().PutState(carID, bytes)
+		err = json.Unmarshal(bytes, &order)
 
 		if err != nil {
-			return "", fmt.Errorf("could not add the data %s", err)
+			return "", fmt.Errorf("could not unmarshal the data. %s", err)
+		}
+
+		car, err := c.ReadCar(ctx, carID)
+		if err != nil {
+			return "", fmt.Errorf("could not read the data. %s", err)
+		}
+
+		if car.Make == order.Make && car.Color == order.Color && car.Model == order.Model {
+			car.OwnedBy = order.DealerName
+			car.Status = "assigned to a dealer"
+
+			bytes, _ := json.Marshal(car)
+
+			ctx.GetStub().DelPrivateData(collectionName, orderID)
+
+			err = ctx.GetStub().PutState(carID, bytes)
+
+			if err != nil {
+				return "", fmt.Errorf("could not add the data %s", err)
+			} else {
+				return fmt.Sprintf("Deleted order %v and Assigned %v to %v", orderID, car.CarId, order.DealerName), nil
+			}
 		} else {
-			return fmt.Sprintf("Deleted order %v and Assigned %v to %v", orderID, car.CarId, order.DealerName), nil
+			return "", fmt.Errorf("order is not matching")
 		}
 	} else {
-		return "", fmt.Errorf("order is not matching")
+		return "", fmt.Errorf("user under following MSPID: %v can't perform this action", clientOrgID)
 	}
 }
 
@@ -309,27 +318,22 @@ func (c *CarContract) RegisterCar(ctx contractapi.TransactionContextInterface, c
 		return "", fmt.Errorf("could not get the MSPID %s", err)
 	}
 
-	
 	if clientOrgID == "mvd-auto-com" {
 
-			car, _ := c.ReadCar(ctx, carID)
-			car.Status = fmt.Sprintf("Registered to  %v with plate number %v", ownerName, registrationNumber)
-			car.OwnedBy = ownerName
+		car, _ := c.ReadCar(ctx, carID)
+		car.Status = fmt.Sprintf("Registered to  %v with plate number %v", ownerName, registrationNumber)
+		car.OwnedBy = ownerName
 
-			bytes, _ := json.Marshal(car)
-			err = ctx.GetStub().PutState(carID, bytes)
-			if err != nil {
-				return "", fmt.Errorf("could not add the updated car details %s", err)
-			} else {
-				return fmt.Sprintf("Car %v successfully registered to %v", carID, ownerName), nil
-			}
-
+		bytes, _ := json.Marshal(car)
+		err = ctx.GetStub().PutState(carID, bytes)
+		if err != nil {
+			return "", fmt.Errorf("could not add the updated car details %s", err)
+		} else {
+			return fmt.Sprintf("Car %v successfully registered to %v", carID, ownerName), nil
+		}
 
 	} else {
 		return "", fmt.Errorf("user under following MSPID: %v cannot able to perform this action", clientOrgID)
 	}
 
 }
-
-
-
