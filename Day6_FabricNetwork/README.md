@@ -1,6 +1,6 @@
 # Fabric network from scratch #
 
-**Creating the folder structure**
+**Create the folder structure**
 
 `mkdir Fabric-network`
 
@@ -91,9 +91,9 @@ export ORG2_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/org2.example
 
 **Join peer0_org1 to the channel**
 
-peer channel join -b ./channel-artifacts/$CHANNEL_NAME.block
+`peer channel join -b ./channel-artifacts/$CHANNEL_NAME.block`
 
-peer channel list
+`peer channel list`
 
 
 Open another terminal with in `Fabric-network` folder, let's call this terminal as `peer0_Org2 terminal`.
@@ -192,7 +192,7 @@ configtxlator proto_encode --input config_update_in_envelope.json --type common.
 
 **Chaincode lifecycle**
 
-Make sure that the chaincode is available in the `Chaincode` folder at the same location of `Fabric-network` folder.
+Make sure that the chaincode is available in the `Chaincode` folder at the same location of `Fabric-network` folder. Edit the MSP IDs in the smart contract and create a new collection file.
 
 ############## **peer0_Org1 terminal** ##############
 
