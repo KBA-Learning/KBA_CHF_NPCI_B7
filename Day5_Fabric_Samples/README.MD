@@ -29,6 +29,8 @@ Copy the fabric binaries to usr/local/bin to use it in the whole system.
 
 ### Deploy asset-transfer basic sample chaincode listed in the samples.
 
+Note: Edit the go.mod file at `fabric-samples/asset-transfer-basic/chaincode-go`, change `go 1.22.0` to `go 1.22`
+
 `./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go`
 
 ```
