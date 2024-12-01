@@ -74,9 +74,9 @@ func (c *CarContract) CreateCar(ctx contractapi.TransactionContextInterface, car
 			OwnedBy:           manufacturerName,
 			Status:            "In Factory",
 		}
-
+		// fmt.Println("Create car data ======= ", car)
 		bytes, _ := json.Marshal(car)
-
+		
 		err = ctx.GetStub().PutState(carID, bytes)
 		if err != nil {
 			return "", fmt.Errorf("could not create car. %s", err)
