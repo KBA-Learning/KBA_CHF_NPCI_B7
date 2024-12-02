@@ -7,11 +7,20 @@ Hyperledger Fabric Readthedocs: https://hyperledger-fabric.readthedocs.io/en/rel
 GitHub Classroom Assignment link: https://classroom.github.com/a/I5vJ_OQM
 
 
+**Day 6**
+
+**Assessment 5**: https://forms.gle/5JDzeTf9msDVdogz8
+
+**Assignment 4**:
+
+Create a Fabric-network with two organizations for the Insurance use-case, deploy the Insurance chaincode, and execute invoke and query transactions. Add the steps to a readme file and keep a screenshot of the outputs. Add it to `Assignment4` folder and upload it to GitHub assignments.
+
+
 **Day 5**
 
 **Feedback**: https://forms.gle/YnUjK9GXpsE9Ubhk8
 
-**Project:**
+**Project Phase1:**
 
 As part of project, select a use case, where applying distributed ledger is relevant. Create a simple pitch deck showing the details and workflow of your project. A sample template for the pitch deck is available under `ProjectGuidelines`. Once you have prepared the pitch deck, please upload the pdf file to Github Assignments by creating a `Project` folder,  on or before 02-Dec-2024, 10.00am.
 
