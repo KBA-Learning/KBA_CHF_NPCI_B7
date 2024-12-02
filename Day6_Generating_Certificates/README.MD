@@ -31,7 +31,7 @@ sudo rm -rf organizations/
 Now for Fabric CA, create docker file and run
 
 ```bash
-docker-compose -f docker/docker-compose-ca.yaml up -d
+docker compose -f docker/docker-compose-ca.yaml up -d
 ```
 
 Then register and enroll using script file
@@ -47,9 +47,9 @@ chmod +x registerEnroll.sh
 Remove the certificates
 
 ```bash
-docker-compose -f docker/docker-compose-ca.yaml down
+docker compose -f docker/docker-compose-ca.yaml down
 
 docker volume rm $(docker volume ls -q)
 
-    sudo rm -rf organizations/
+sudo rm -rf organizations/
 ```
