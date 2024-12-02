@@ -46,8 +46,9 @@ func (o *OrderContract) CreateOrder(ctx contractapi.TransactionContextInterface,
 		return "", fmt.Errorf("could not fetch client identity. %s", err)
 	}
 
-	if clientOrgID == "Org2MSP" {
-		// if clientOrgID == "dealer-auto-com" {
+	// if clientOrgID == "Org2MSP" {
+	// if clientOrgID == "dealer-auto-com" {
+	if clientOrgID == "DealerMSP" {
 		exists, err := o.OrderExists(ctx, orderID)
 		if err != nil {
 			return "", fmt.Errorf("could not read from world state. %s", err)
@@ -135,8 +136,9 @@ func (o *OrderContract) DeleteOrder(ctx contractapi.TransactionContextInterface,
 	if err != nil {
 		return fmt.Errorf("could not read the client identity. %s", err)
 	}
-	if clientOrgID == "Org2MSP" {
-		// if clientOrgID == "dealer-auto-com" {
+	// if clientOrgID == "Org2MSP" {
+	// if clientOrgID == "dealer-auto-com" {
+	if clientOrgID == "DealerMSP" {
 
 		exists, err := o.OrderExists(ctx, orderID)
 

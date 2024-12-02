@@ -1,18 +1,5 @@
-# Fabric network from scratch #
-
-**Create the folder structure**
-
-`mkdir Fabric-network`
-
-`cd Fabric-network`
-
-**Generate the certificates using fabric-ca**
-
-`mkdir docker`
 
 **Register the ca admin for each organization**
-
-Build the `docker-compose-ca.yaml` in the `docker` folder
 
 `docker compose -f docker/docker-compose-ca.yaml up -d`
 
@@ -22,25 +9,15 @@ Build the `docker-compose-ca.yaml` in the `docker` folder
 
 **Register and enroll the users for each organization**
 
-Build the `registerEnroll.sh` script file
-
-`chmod +x registerEnroll.sh`
-
 `./registerEnroll.sh`
 
 **Build the infrastructure**
-
-Build the `docker-compose-2org.yaml` in the docker folder
 
 `docker compose -f docker/docker-compose-2org.yaml up -d`
 
 `docker ps -a`
 
 **Generate the channel artifacts**
-
-`mkdir config`
-
-Build the `configtx.yaml` file in the `config` folder
 
 ```
 export FABRIC_CFG_PATH=./config
@@ -65,11 +42,6 @@ export ORDERER_ADMIN_TLS_PRIVATE_KEY=./organizations/ordererOrganizations/exampl
 `osnadmin channel list -o localhost:7053 --ca-file $ORDERER_CA --client-cert $ORDERER_ADMIN_TLS_SIGN_CERT --client-key $ORDERER_ADMIN_TLS_PRIVATE_KEY`
 
 **Join peers to the channel**
-
-`mkdir peercfg`
-
-Build the `core.yaml` in `peercfg` folder
-
 
 Open another terminal with in `Fabric-network` folder, let's call this terminal as `peer0_Org1 terminal`.
 
@@ -192,7 +164,7 @@ configtxlator proto_encode --input config_update_in_envelope.json --type common.
 
 **Chaincode lifecycle**
 
-Make sure that the chaincode is available in the `Chaincode` folder at the same location of `Fabric-network` folder. Edit the MSP IDs in the smart contract and create a new collection file.
+Make sure that the chaincode is available in the `Chaincode` folder at the same location of `Fabric-network` folder. 
 
 ############## **peer0_Org1 terminal** ##############
 
@@ -220,7 +192,6 @@ Make sure that the chaincode is available in the `Chaincode` folder at the same 
 `export CC_PACKAGE_ID=$(peer lifecycle chaincode calculatepackageid KBA-Automobile.tar.gz)`
 
 `peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --channelID $CHANNEL_NAME --name kbaautomobile --version 1.0 --package-id $CC_PACKAGE_ID --sequence 1 --collections-config ../Chaincode/collection.json --tls --cafile $ORDERER_CA --waitForEvent`
-
 
 
 ############## **peer0_Org1 terminal** ##############
@@ -333,6 +304,59 @@ If there still exists the containers then execute the following commands.
 
 `docker network prune`
 
+**Run using startNetwork.sh script**
+
+Build `startNetwork.sh` script file
+
+`sudo chmod +x startNetwork.sh`
+
+`./startNetwork.sh`
+
+
+To submit transaction as Org1
+
+```
+export CHANNEL_NAME=mychannel
+export FABRIC_CFG_PATH=./peercfg
+export ORDERER_CA=${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+export ORG1_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+export ORG2_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+
+export CORE_PEER_LOCALMSPID=Org1MSP
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+export CORE_PEER_ADDRESS=localhost:7051
+```
+
+`peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n kbaautomobile --peerAddresses localhost:7051 --tlsRootCertFiles $ORG1_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $ORG2_PEER_TLSROOTCERT -c '{"function":"CreateCar","Args":["Car-14", "Tata", "Nexon", "Black", "Factory-1", "22/07/2024"]}'`
+
+`peer chaincode query -C $CHANNEL_NAME -n kbaautomobile -c '{"Args":["GetAllCars"]}'`
+
+To submit transaction as Org2
+
+```
+export CHANNEL_NAME=mychannel
+export FABRIC_CFG_PATH=./peercfg
+export ORDERER_CA=${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+export ORG1_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+export ORG2_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+export CORE_PEER_LOCALMSPID=Org2MSP 
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_ADDRESS=localhost:9051 
+export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+```
+
+`peer chaincode query -C $CHANNEL_NAME -n kbaautomobile -c '{"Args":["GetAllCars"]}'`
+
+To stop the network using script file
+
+Build `stopNetwork.sh` script file
+
+`chmod +x stopNetwork.sh`
+
+`./stopNetwork.sh`
 
 
 
