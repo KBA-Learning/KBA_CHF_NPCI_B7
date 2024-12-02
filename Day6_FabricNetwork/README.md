@@ -305,9 +305,9 @@ In the following command, replace the `chaincodeConatinerID` with container ID o
 
 ############## **host terminal** ##############
 
-`docker-compose -f docker/docker-compose-2org.yaml down`
+`docker compose -f docker/docker-compose-2org.yaml down`
 
-`docker-compose -f docker/docker-compose-ca.yaml down`
+`docker compose -f docker/docker-compose-ca.yaml down`
 
 `docker volume rm $(docker volume ls -q)`
 
