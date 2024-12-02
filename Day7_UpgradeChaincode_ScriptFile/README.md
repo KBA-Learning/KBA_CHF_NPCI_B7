@@ -239,6 +239,67 @@ Make sure that the chaincode is available in the `Chaincode` folder at the same 
 
 `peer chaincode query -C $CHANNEL_NAME -n kbaautomobile -c '{"Args":["GetAllCars"]}'`
 
+**Access couchDB**
+
+Browse http://localhost:5984/_utils 
+
+
+**Upgrade chaincode**
+
+Make necessary changes in the KBA-Automobile chaincode by editing `Chaincode/contracts/car-contract.go` file. 
+Add the following statement in `CreateCar` function 
+
+`fmt.Println("Create car data ======= ", car)`
+
+############## **peer0_Org1 terminal** ##############
+
+`peer lifecycle chaincode package KBA-Automobile_2.tar.gz --path ../Chaincode/ --lang golang --label kbaautomobile_2.0`
+
+`peer lifecycle chaincode install KBA-Automobile_2.tar.gz`
+
+`peer lifecycle chaincode queryinstalled`
+
+
+############## **peer0_Org2 terminal** ##############
+
+`peer lifecycle chaincode install KBA-Automobile_2.tar.gz`
+
+`peer lifecycle chaincode queryinstalled`
+
+############## **peer0_Org1 terminal** ##############
+
+`export NEW_CC_PACKAGE_ID=$(peer lifecycle chaincode calculatepackageid KBA-Automobile_2.tar.gz)`
+
+`peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --channelID $CHANNEL_NAME --name kbaautomobile --version 2.0 --package-id $NEW_CC_PACKAGE_ID --sequence 2 --collections-config ../Chaincode/collection.json --tls --cafile $ORDERER_CA --waitForEvent`
+
+############## **peer0_Org2 terminal** ##############
+
+`export NEW_CC_PACKAGE_ID=$(peer lifecycle chaincode calculatepackageid KBA-Automobile_2.tar.gz)`
+
+`peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --channelID $CHANNEL_NAME --name kbaautomobile --version 2.0 --package-id $NEW_CC_PACKAGE_ID --sequence 2 --collections-config ../Chaincode/collection.json --tls --cafile $ORDERER_CA --waitForEvent`
+
+`peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME --name kbaautomobile --version 2.0 --sequence 2 --collections-config ../Chaincode/collection.json --tls --cafile $ORDERER_CA --output json`
+
+`peer lifecycle chaincode commit -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --channelID $CHANNEL_NAME --name kbaautomobile --version 2.0 --sequence 2 --collections-config ../Chaincode/collection.json --tls --cafile $ORDERER_CA --peerAddresses localhost:7051 --tlsRootCertFiles $ORG1_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $ORG2_PEER_TLSROOTCERT`
+
+`peer lifecycle chaincode querycommitted --channelID ${CHANNEL_NAME} --name kbaautomobile`
+
+############## **peer0_Org1 terminal** ##############
+
+Now the chaincode is ready for invoke and query transactions
+
+`peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n kbaautomobile --peerAddresses localhost:7051 --tlsRootCertFiles $ORG1_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $ORG2_PEER_TLSROOTCERT -c '{"function":"CreateCar","Args":["Car-12", "Tata", "Nexon", "White", "Factory-1", "22/07/2024"]}'`
+
+`peer chaincode query -C $CHANNEL_NAME -n kbaautomobile -c '{"function":"ReadCar", "Args":["Car-12"]}'`
+
+To view the print statement
+
+`docker ps -a`
+
+In the following command, replace the `chaincodeConatinerID` with container ID of chaincode container
+
+`docker logs chaincodeConatinerID`
+
 
 **Stop the network**
 
@@ -253,6 +314,8 @@ Make sure that the chaincode is available in the `Chaincode` folder at the same 
 `sudo rm -rf channel-artifacts/`
 
 `sudo rm KBA-Automobile.tar.gz`
+
+`sudo rm KBA-Automobile_2.tar.gz`
 
 `sudo rm -rf organizations/`
 
