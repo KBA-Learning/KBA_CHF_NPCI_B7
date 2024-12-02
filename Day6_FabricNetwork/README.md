@@ -247,7 +247,7 @@ Browse http://localhost:5984/_utils
 **Upgrade chaincode**
 
 Make necessary changes in the KBA-Automobile chaincode by editing `Chaincode/contracts/car-contract.go` file. 
-Add the following statement in CreateCar function 
+Add the following statement in `CreateCar` function 
 
 `fmt.Println("Create car data ======= ", car)`
 
@@ -278,7 +278,7 @@ Add the following statement in CreateCar function
 
 `peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --channelID $CHANNEL_NAME --name kbaautomobile --version 2.0 --package-id $NEW_CC_PACKAGE_ID --sequence 2 --collections-config ../Chaincode/collection.json --tls --cafile $ORDERER_CA --waitForEvent`
 
-`peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME --name kbaautomobile --version 2.0 --sequence 2 --tls --cafile $ORDERER_CA --output json`
+`peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME --name kbaautomobile --version 2.0 --sequence 2 --collections-config ../Chaincode/collection.json --tls --cafile $ORDERER_CA --output json`
 
 `peer lifecycle chaincode commit -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --channelID $CHANNEL_NAME --name kbaautomobile --version 2.0 --sequence 2 --collections-config ../Chaincode/collection.json --tls --cafile $ORDERER_CA --peerAddresses localhost:7051 --tlsRootCertFiles $ORG1_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $ORG2_PEER_TLSROOTCERT`
 
@@ -288,7 +288,7 @@ Add the following statement in CreateCar function
 
 Now the chaincode is ready for invoke and query transactions
 
-`peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n kbaautomobile --peerAddresses localhost:7051 --tlsRootCertFiles $ORG1_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $ORG2_PEER_TLSROOTCERT -c '{"function":"CreateCar","Args":["Car-12", "Tata", "Nexon", "White", "Factory-1", "22/07/2023"]}'`
+`peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n kbaautomobile --peerAddresses localhost:7051 --tlsRootCertFiles $ORG1_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $ORG2_PEER_TLSROOTCERT -c '{"function":"CreateCar","Args":["Car-12", "Tata", "Nexon", "White", "Factory-1", "22/07/2024"]}'`
 
 `peer chaincode query -C $CHANNEL_NAME -n kbaautomobile -c '{"function":"ReadCar", "Args":["Car-12"]}'`
 
