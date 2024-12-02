@@ -1,5 +1,3 @@
-version: '3.7'
-
 volumes:
   orderer.example.com:
   peer0.org1.example.com:
@@ -56,7 +54,7 @@ services:
 
   couchdb0:
     container_name: couchdb0
-    image: couchdb:3.3.2
+    image: couchdb:3.3.3
     labels:
       service: hyperledger-fabric
     environment:
@@ -116,7 +114,7 @@ services:
 
   couchdb1:
     container_name: couchdb1
-    image: couchdb:3.3.2
+    image: couchdb:3.3.3
     labels:
       service: hyperledger-fabric
     environment:
@@ -171,28 +169,5 @@ services:
       - 9445:9445
     depends_on:
       - couchdb1
-    networks:
-      - test
-
-  cli:
-    container_name: cli
-    image: hyperledger/fabric-tools:latest
-    labels:
-      service: hyperledger-fabric
-    tty: true
-    stdin_open: true
-    environment:
-      - GOPATH=/opt/gopath
-      - FABRIC_LOGGING_SPEC=INFO
-      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-      #- FABRIC_LOGGING_SPEC=DEBUG
-    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
-    command: /bin/bash
-    volumes:
-      - /var/run/docker.sock:/host/var/run/docker.sock
-      - ../organizations:/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations
-    depends_on:
-      - peer0.org1.example.com
-      - peer0.org2.example.com
     networks:
       - test

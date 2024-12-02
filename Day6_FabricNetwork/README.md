@@ -272,7 +272,7 @@ Add the following statement in CreateCar function
 
 `peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --channelID $CHANNEL_NAME --name kbaautomobile --version 2.0 --package-id $NEW_CC_PACKAGE_ID --sequence 2 --collections-config ../Chaincode/collection.json --tls --cafile $ORDERER_CA --waitForEvent`
 
-############## peer0_Org2 terminal ##############
+############## **peer0_Org2 terminal** ##############
 
 `export NEW_CC_PACKAGE_ID=$(peer lifecycle chaincode calculatepackageid KBA-Automobile_2.tar.gz)`
 
