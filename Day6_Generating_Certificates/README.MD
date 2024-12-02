@@ -41,7 +41,7 @@ sudo chmod -R 777 organizations/
 
 chmod +x registerEnroll.sh
 
-./regtisterEnroll.sh
+./registerEnroll.sh
 ```
 
 Remove the certificates
