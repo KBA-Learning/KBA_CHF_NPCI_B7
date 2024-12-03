@@ -9,7 +9,7 @@ cd Automobile-network/
 
 ### ------------Register the ca admin for each organization—----------------
 
-##### ***Build the docker-compose-ca.yaml in the docker folder
+##### ***Build the `docker-compose-ca.yaml` in the docker folder
 
 ```
 docker compose -f docker/docker-compose-ca.yaml up -d
@@ -21,7 +21,7 @@ sudo chmod -R 777 organizations/
 ```
 ### ------------Register and enroll the users for each organization—-----------
 
-##### ***Build the registerEnroll.sh script file
+##### ***Build the `registerEnroll.sh` script file
 
 
 ```
@@ -33,7 +33,7 @@ chmod +x registerEnroll.sh
 
 ### —-------------Build the infrastructure—-----------------
 
-##### ***Build the docker-compose-3org.yaml in the docker folder
+##### ***Build the `docker-compose-3org.yaml` in the docker folder
 
 ```
 docker compose -f docker/docker-compose-3org.yaml up -d
