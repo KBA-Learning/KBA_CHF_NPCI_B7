@@ -16,8 +16,10 @@ sudo chmod -R 777 organizations/fabric-ca/org3
 
 ```bash
 chmod +x registerEnrollOrg3.sh
+```
 
-./registerEnroll.sh
+```bash
+./registerEnrollOrg3.sh
 ```
 
 ### Org3 organization definition
