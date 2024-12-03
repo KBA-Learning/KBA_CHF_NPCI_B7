@@ -218,7 +218,7 @@ peer chaincode query -C $CHANNEL_NAME -n kbaautomobile -c '{"function":"ReadCar"
 ## To stop the network for peer1org1 & org3 
 
 ```bash
-docker compose -f docker/dockercompose-peer1org1.yaml down
+docker compose -f docker/docker-compose-peer1org1.yaml down
 
 docker compose -f docker/docker-compose-ca-org3.yaml down
 

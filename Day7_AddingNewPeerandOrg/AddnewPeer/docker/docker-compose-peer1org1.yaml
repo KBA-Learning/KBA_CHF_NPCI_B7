@@ -8,7 +8,7 @@ networks:
 services:
   couchdb2:
     container_name: couchdb2
-    image: couchdb:3.3.2
+    image: couchdb:3.3.3
     labels:
       service: hyperledger-fabric
     environment:

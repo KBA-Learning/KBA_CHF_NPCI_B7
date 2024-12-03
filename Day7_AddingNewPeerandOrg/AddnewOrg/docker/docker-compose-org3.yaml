@@ -9,7 +9,7 @@ services:
 
   couchdb3:
     container_name: couchdb3
-    image: couchdb:3.3.2
+    image: couchdb:3.3.3
     labels:
       service: hyperledger-fabric
     environment:
@@ -22,7 +22,7 @@ services:
 
   peer0.org3.example.com:
     container_name: peer0.org3.example.com
-    image: hyperledger/fabric-peer:latest
+    image: hyperledger/fabric-peer:2.5.4
     labels:
       service: hyperledger-fabric
     environment:
