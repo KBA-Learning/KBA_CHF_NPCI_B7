@@ -383,9 +383,6 @@ docker compose -f docker/docker-compose-3org.yaml down
 docker compose -f docker/docker-compose-ca.yaml down
 ```
 ```
-docker rm -f $(docker ps -a | awk '($2 ~ /dev-peer.*/) {print $1}')
-```
-```
 docker volume rm $(docker volume ls -q)
 ```
 ```
@@ -422,7 +419,7 @@ docker network prune
 
 ### Run using startAutomobileNetwork.sh script
 
-##### ***Build startAutomobileNetwork.sh script file
+##### ***Build `startAutomobileNetwork.sh` script file
 
 ```
 chmod +x startAutomobileNetwork.sh
@@ -458,7 +455,7 @@ peer chaincode query -C $CHANNEL_NAME -n KBA-Automobile -c '{"Args":["GetAllCars
 
 ### To stop the network using script file
 
-##### ***Build stopAutomobileNetwork.sh script file
+##### ***Build `stopAutomobileNetwork.sh` script file
 ```
 chmod +x stopAutomobileNetwork.sh
 ```
