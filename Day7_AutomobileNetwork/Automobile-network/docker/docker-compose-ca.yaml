@@ -5,7 +5,7 @@ networks:
 services:
 
   ca_manufacturer:
-    image: hyperledger/fabric-ca:latest
+    image: hyperledger/fabric-ca:1.5.7
     labels:
       service: hyperledger-fabric
     environment:
@@ -25,7 +25,7 @@ services:
       - automobile
 
   ca_dealer:
-    image: hyperledger/fabric-ca:latest
+    image: hyperledger/fabric-ca:1.5.7
     labels:
       service: hyperledger-fabric
     environment:
@@ -45,7 +45,7 @@ services:
       - automobile
 
   ca_mvd:
-    image: hyperledger/fabric-ca:latest
+    image: hyperledger/fabric-ca:1.5.7
     labels:
       service: hyperledger-fabric
     environment:
@@ -65,7 +65,7 @@ services:
       - automobile
       
   ca_orderer:
-    image: hyperledger/fabric-ca:latest
+    image: hyperledger/fabric-ca:1.5.7
     labels:
       service: hyperledger-fabric
     environment:

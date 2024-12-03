@@ -7,9 +7,9 @@ Hyperledger Fabric Readthedocs: https://hyperledger-fabric.readthedocs.io/en/rel
 GitHub Classroom Assignment link: https://classroom.github.com/a/I5vJ_OQM
 
 
-**Day 6**
 
-**Assessment 5**: https://forms.gle/5JDzeTf9msDVdogz8
+
+**Day 6**
 
 **Assignment 4**:
 
