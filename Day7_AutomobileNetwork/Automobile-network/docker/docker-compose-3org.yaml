@@ -235,27 +235,3 @@ services:
     networks:
       - automobile
 
-
-  cli:
-    container_name: cli
-    image: hyperledger/fabric-tools:2.5.4
-    labels:
-      service: hyperledger-fabric
-    tty: true
-    stdin_open: true
-    environment:
-      - GOPATH=/opt/gopath
-      - FABRIC_LOGGING_SPEC=INFO
-      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-      #- FABRIC_LOGGING_SPEC=DEBUG
-    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
-    command: /bin/bash
-    volumes:
-      - /var/run/docker.sock:/host/var/run/docker.sock
-      - ../organizations:/opt/gopath/src/github.com/hyperledger/fabric/peer/organizations
-    depends_on:
-      - peer0.manufacturer.auto.com
-      - peer0.dealer.auto.com
-      - peer0.mvd.auto.com
-    networks:
-      - automobile
