@@ -1,4 +1,9 @@
 
+Execute all the commands from `Fabric-network` folder
+
+`cd Fabric-network`
+
+
 **Register the ca admin for each organization**
 
 `docker compose -f docker/docker-compose-ca.yaml up -d`
