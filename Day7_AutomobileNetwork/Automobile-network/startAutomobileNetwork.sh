@@ -2,7 +2,7 @@
 
 echo "------------Register the ca admin for each organization—----------------"
 
-docker-compose -f docker/docker-compose-ca.yaml up -d
+docker compose -f docker/docker-compose-ca.yaml up -d
 sleep 3
 
 sudo chmod -R 777 organizations/
@@ -16,7 +16,7 @@ sleep 3
 
 echo "—-------------Build the infrastructure—-----------------"
 
-docker-compose -f docker/docker-compose-3org.yaml up -d
+docker compose -f docker/docker-compose-3org.yaml up -d
 sleep 3
 
 echo "-------------Generate the genesis block—-------------------------------"

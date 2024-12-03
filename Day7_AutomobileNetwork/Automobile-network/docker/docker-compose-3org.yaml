@@ -1,5 +1,3 @@
-version: '3.7'
-
 volumes:
   orderer.auto.com:
   peer0.manufacturer.auto.com:

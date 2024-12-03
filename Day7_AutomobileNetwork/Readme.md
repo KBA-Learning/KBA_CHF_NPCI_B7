@@ -12,7 +12,7 @@ cd Automobile-network/
 ##### ***Build the docker-compose-ca.yaml in the docker folder
 
 ```
-docker-compose -f docker/docker-compose-ca.yaml up -d
+docker compose -f docker/docker-compose-ca.yaml up -d
 
 ```
 
@@ -36,7 +36,7 @@ chmod +x registerEnroll.sh
 ##### ***Build the docker-compose-3org.yaml in the docker folder
 
 ```
-docker-compose -f docker/docker-compose-3org.yaml up -d
+docker compose -f docker/docker-compose-3org.yaml up -d
 ```
 
 
@@ -377,10 +377,10 @@ peer chaincode query -C $CHANNEL_NAME -n KBA-Automobile -c '{"Args":["OrderContr
 ##  **************** Host terminal ******************
 
 ```
-docker-compose -f docker/docker-compose-3org.yaml down
+docker compose -f docker/docker-compose-3org.yaml down
 ```
 ```
-docker-compose -f docker/docker-compose-ca.yaml down
+docker compose -f docker/docker-compose-ca.yaml down
 ```
 ```
 docker rm -f $(docker ps -a | awk '($2 ~ /dev-peer.*/) {print $1}')
@@ -449,7 +449,7 @@ export MVD_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/mvd.auto.com/
 ```
 
 ```
-peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.auto.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n KBA-Automobile --peerAddresses localhost:7051 --tlsRootCertFiles $MANUFACTURER_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $DEALER_PEER_TLSROOTCERT --peerAddresses localhost:11051 --tlsRootCertFiles $MVD_PEER_TLSROOTCERT -c '{"function":"CreateCar","Args":["Car-101", "Tata", "Nexon", "White", "Factory-1", "22/07/2023"]}'
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.auto.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n KBA-Automobile --peerAddresses localhost:7051 --tlsRootCertFiles $MANUFACTURER_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $DEALER_PEER_TLSROOTCERT --peerAddresses localhost:11051 --tlsRootCertFiles $MVD_PEER_TLSROOTCERT -c '{"function":"CreateCar","Args":["Car-101", "Tata", "Nexon", "White", "Factory-1", "22/07/2024"]}'
 ```
 
 ```
@@ -469,9 +469,9 @@ chmod +x stopAutomobileNetwork.sh
 ### To stop the network without clearing the data using docker
 
 ```
-docker-compose -f ./docker/docker-compose-ca.yaml -f ./docker/docker-compose-3org.yaml stop
+docker compose -f ./docker/docker-compose-ca.yaml -f ./docker/docker-compose-3org.yaml stop
 ```
 ### To start the network with existing docker containers
 ```
-docker-compose -f ./docker/docker-compose-ca.yaml -f ./docker/docker-compose-3org.yaml start
+docker compose -f ./docker/docker-compose-ca.yaml -f ./docker/docker-compose-3org.yaml start
 ```
