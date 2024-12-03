@@ -42,7 +42,7 @@ docker compose -f docker/docker-compose-3org.yaml up -d
 
 ### -------------Generate the genesis block—-------------------------------
 
-##### ***Build the configtx.yaml file in the config folder
+##### ***Build the `configtx.yaml` file in the config folder
 
 ```
 export FABRIC_CFG_PATH=./config
@@ -78,7 +78,7 @@ osnadmin channel list -o localhost:7053 --ca-file $ORDERER_CA --client-cert $ORD
 
 ##  **************** peer0_Manufacturer terminal ********************
 
-##### ***Build the core.yaml in peercfg folder
+##### ***Build the `core.yaml` in peercfg folder
 
 ```
 export FABRIC_CFG_PATH=./peercfg
