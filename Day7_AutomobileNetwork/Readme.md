@@ -419,7 +419,7 @@ docker network prune
 
 ### Run using startAutomobileNetwork.sh script
 
-##### ***Build `startAutomobileNetwork.sh` script file
+##### Build `startAutomobileNetwork.sh` script file
 
 ```
 chmod +x startAutomobileNetwork.sh
@@ -430,7 +430,7 @@ chmod +x startAutomobileNetwork.sh
 ```
 
 
-##### ***To submit transaction as ManufacturerMSP
+##### To submit transaction as ManufacturerMSP
 ```
 export CHANNEL_NAME=autochannel
 export FABRIC_CFG_PATH=./peercfg
@@ -455,7 +455,7 @@ peer chaincode query -C $CHANNEL_NAME -n KBA-Automobile -c '{"Args":["GetAllCars
 
 ### To stop the network using script file
 
-##### ***Build `stopAutomobileNetwork.sh` script file
+##### Build `stopAutomobileNetwork.sh` script file
 ```
 chmod +x stopAutomobileNetwork.sh
 ```
