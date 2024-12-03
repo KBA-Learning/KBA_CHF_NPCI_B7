@@ -7,6 +7,11 @@ Hyperledger Fabric Readthedocs: https://hyperledger-fabric.readthedocs.io/en/rel
 GitHub Classroom Assignment link: https://classroom.github.com/a/I5vJ_OQM
 
 
+**Day 7**
+
+**Assessment 6:** https://forms.gle/nMT52z6d9XNPxPDw9
+
+**Assignment:** Complete Assignment 4 and upload it before 04-Dec-2024, 9am.
 
 
 **Day 6**
