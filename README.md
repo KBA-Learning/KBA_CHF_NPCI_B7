@@ -6,6 +6,13 @@ Hyperledger Fabric Readthedocs: https://hyperledger-fabric.readthedocs.io/en/rel
 
 GitHub Classroom Assignment link: https://classroom.github.com/a/I5vJ_OQM
 
+**Day 8**
+
+**Assessment 7**: https://forms.gle/1ocEHZtQw1xDBSiW6
+
+**Project Phase II**: Build the network for the use-case you have selected for the project. Perform the following steps: Bring up the network, create channel, join the peers, anchor peer update. Add these steps to readme and keep a screenshot of docker ps -a. Upload the network to project folder before 06-Dec-2024, 9am.
+
+
 
 **Day 7**
 
