@@ -16,7 +16,7 @@ To start the automobile network execute this command
 ./startAutomobileNetwork.sh
 ```
 
-## Create the `Simple-App` folder
+## Create the `Simple-App` folder within KBA-Automobile folder
 
 ```bash
 cd ..
