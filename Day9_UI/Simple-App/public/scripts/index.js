@@ -1,5 +1,6 @@
 const addData = async (event) => {
-    const carId = document.getElementById("carId").ariaValueMax;
+    event.preventDefault();
+    const carId = document.getElementById("carId").value;
     const make = document.getElementById("make").value;
     const model = document.getElementById("model").value;
     const color = document.getElementById("color").value;
