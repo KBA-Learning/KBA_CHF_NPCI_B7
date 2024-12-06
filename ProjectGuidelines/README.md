@@ -28,7 +28,7 @@ Your final project contents should have:
 
 Sample document is uploaded.
 
-If required you may seek assistance from the KBA Fabric team during the development phase by mail (chf.kba@iiitmk.ac.in) or watsapp group.  
+If required, you may seek assistance from the KBA Fabric team during the development phase by mail (chf.kba@iiitmk.ac.in) or watsapp group.  
 
 **Project Deadlines**
 
