@@ -6,7 +6,7 @@ cd fabric-samples/test-network/
 ./network.sh up createChannel
 ```
 ```
-./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-javascript/ -ccl javascript
+./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
 ```
 
 ### Create the caliper-workspace directory in the same path of fabric samples
