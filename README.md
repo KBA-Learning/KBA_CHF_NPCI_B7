@@ -4,18 +4,19 @@ Elearning course link: https://elearning.kba.ai/courses/course-v1:KBA+CHF_GO+202
 
 Hyperledger Fabric Readthedocs: https://hyperledger-fabric.readthedocs.io/en/release-2.5/
 
+Hyperledger Fabric Certified Practitioner (HFCP) exam: https://training.linuxfoundation.org/certification/hyperledger-fabric-certified-practitioner-hfcp/
+
 GitHub Classroom Assignment link: https://classroom.github.com/a/I5vJ_OQM
 
-**Day 9**
 
-**Assessment 8**: https://forms.gle/pwBbFgVVFmHZJEe36
+**Day 10**
 
+**Project**: Project submission details are available under **`ProjectGuidelines`**
 
+**Feedback**: https://forms.gle/SQXJRNsPduvByL5f7
 
 
 **Day 8**
-
-**Assessment 7**: https://forms.gle/1ocEHZtQw1xDBSiW6
 
 **Project Phase II**: Build the network for the use-case you have selected for the project. Perform the following steps: Bring up the network, create channel, join the peers, anchor peer update. Add these steps to readme and keep a screenshot of docker ps -a. Upload the network to project folder before 06-Dec-2024, 9am.
 
@@ -23,7 +24,6 @@ GitHub Classroom Assignment link: https://classroom.github.com/a/I5vJ_OQM
 
 **Day 7**
 
-**Assessment 6:** https://forms.gle/nMT52z6d9XNPxPDw9
 
 **Assignment:** Complete Assignment 4 and upload it before 04-Dec-2024, 9am.
 
