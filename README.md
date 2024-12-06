@@ -4,6 +4,8 @@ Elearning course link: https://elearning.kba.ai/courses/course-v1:KBA+CHF_GO+202
 
 Hyperledger Fabric Readthedocs: https://hyperledger-fabric.readthedocs.io/en/release-2.5/
 
+Hyperledger Fabric GitHub: https://github.com/hyperledger/fabric
+
 Hyperledger Fabric Certified Practitioner (HFCP) exam: https://training.linuxfoundation.org/certification/hyperledger-fabric-certified-practitioner-hfcp/
 
 GitHub Classroom Assignment link: https://classroom.github.com/a/I5vJ_OQM
@@ -69,7 +71,3 @@ Build a Hyperledger Fabric network using minifabric and  list all the containers
 2. Write a docker-compose.yml file to run two containers using the same image created above, ensuring that they can run independently. Also, include the steps to use Docker Compose to bring up the containers and verify their outputs. Add a screenshot of the output.
 
 **Note**: Add the assignment to the GitHub classroom (https://classroom.github.com/a/I5vJ_OQM) by creating a folder `Assignment1`.
-
-
-
-
