@@ -1,13 +1,13 @@
 # Project Guidelines
 
-- Select a use case, where applying distributed ledger is relevant. 
+- Select a use case where applying a distributed ledger is relevant. 
 - Create a simple pitch deck showing the details and workflow of your project. 
 - Create a working demo. 
 
 
 Your final project contents should have:
 
-1. **The application built using Hyperledger Fabric**: This is the coding part of your project. The code must be clearly commented. And it should have:
+1. **The application built using Hyperledger Fabric**: This is the coding part of your project. The code must be clearly commented on. It should have:
 - Network Setup
 - Chaincode
 - The project should implement chaincode features like PDC  and Rich queries (including functions to get history, list of assets, range query, pagination query etc).
@@ -20,7 +20,7 @@ Your final project contents should have:
 
 3. **Pitch deck**: The pitch deck showing the details and workflow of your project.
 
-4. **Documentation**: The documentation file of your project should have the following contents.
+4. **Documentation**: Your project documentation file should have the following contents.
 - Use case (Current Scenario, Pros & Cons).
 - Why Fabric(Advantages of introducing Fabric).
 - Rough and neat workflow diagram of the use case.
@@ -40,7 +40,7 @@ Project presentation and evaluation (Online): **18-Dec-2024/19-Dec-2024**
 
 The medium of submission will be **GitHub Assignments**. Upload your project to GitHub Assignments (https://classroom.github.com/a/I5vJ_OQM) of your account.  The project repository name should be in the format "**StudentFullName_ProjectName**". For example, the "FabCar" project by Charles Babbage should have a repository named "CharlesBabbage_FabCar".
 
-On receiving the project, the KBA team will execute or verify your project and will schedule an online evaluation session.
+Upon receiving the project, the KBA team will execute or verify your project and schedule an online evaluation session.
 
 **General guidelines to be followed for presentation:**
 - Join the Zoom meeting using the laptop.
@@ -52,6 +52,6 @@ On receiving the project, the KBA team will execute or verify your project and w
 - Bootstrap the network and do some transactions before the scheduled time.
 - Demonstrate the complete working of the project during the presentation.
 - Explain the overall working of the project within 10 minutes and 15 minutes is reserved for viva.
-- Upload the project in GitHub Assignments before 6.00 pm on 16-Dec-2024. 
+- **Upload the project in GitHub Assignments before 6.00 pm on 16-Dec-2024.** 
 - Follow the project guidelines.
 
