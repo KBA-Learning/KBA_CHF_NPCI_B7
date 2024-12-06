@@ -38,7 +38,7 @@ Project presentation and evaluation (Online): **18-Dec-2024/19-Dec-2024**
 
 **How to submit your project.?**
 
-The medium of submission will be **GitHub Assignments**. Upload your project to GitHub Assignments ( https://classroom.github.com/a/I5vJ_OQM) of your account.  The project repository name should be in the format "**StudentFullName_ProjectName**". For example, the "FabCar" project by Charles Babbage should have a repository named "CharlesBabbage_FabCar".
+The medium of submission will be **GitHub Assignments**. Upload your project to GitHub Assignments (https://classroom.github.com/a/I5vJ_OQM) of your account.  The project repository name should be in the format "**StudentFullName_ProjectName**". For example, the "FabCar" project by Charles Babbage should have a repository named "CharlesBabbage_FabCar".
 
 On receiving the project, the KBA team will execute or verify your project and will schedule an online evaluation session.
 
