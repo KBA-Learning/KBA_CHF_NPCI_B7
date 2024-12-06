@@ -60,6 +60,15 @@ For the Insurance use-case, Create a chaincode for implementing functionalities 
 Develop a Hyperledger Fabric blockchain solution for managing vehicle insurance claims post-accident. The solution will involve multiple participants, namely the Police Department, Government Agency, Insurance Company, and Vehicle Manufacturer.
 Build a Hyperledger Fabric network using minifabric and  list all the containers. Add the entire code to a directory Assignment2, and add readme with the steps to run it.  Add a screenshot of the output.
 
+**Day2**
+
+**Assignment 1:** 
+
+1. Create a Dockerfile that uses the official Node.js image (node:18-slim) to run a JavaScript file called hello.js, which prints Hello, Docker World! to the console. On a Readme file, write the steps to build the Docker image, run the container, list the image, list the container and see the output message. Add a screenshot of the output. (Hint: use COPY instruction in Dockerfile)
+
+2. Write a docker-compose.yml file to run two containers using the same image created above, ensuring that they can run independently. Also, include the steps to use Docker Compose to bring up the containers and verify their outputs. Add a screenshot of the output.
+
+**Note**: Add the assignment to the GitHub classroom (https://classroom.github.com/a/I5vJ_OQM) by creating a folder `Assignment1`.
 
 
 
